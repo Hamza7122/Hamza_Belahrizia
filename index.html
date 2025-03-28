@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Lien CDN pour Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <title>Etudier au Maroc</title>
+  </head>
+
+  <body>
+    <aside>
+      <button class="menu-btn fa fa-chevron-left"></button>
+      <a href="/" class="logo-wrapper">
+        <span class="fa-brands fa-uikit"></span>
+        <span class="brand-name">Student pro</span>
+      </a>
+      <div class="separator"></div>
+      <ul class="menu-items">
+        <li>
+          <a href="#content-accueil"
+            ><span class="icon fa fa-house"></span
+            ><span class="item-name">Accueil</span></a
+          ><span class="tooltip">Accueil</span>
+        </li>
+        <li>
+          <a href="#content-cours"
+            ><span class="icon fa fa-layer-group"></span
+            ><span class="item-name">Cours</span></a
+          ><span class="tooltip">Cours</span>
+        </li>
+        <li>
+          <a href="#content-orientation"
+            ><span class="icon fa fa-chart-line"></span
+            ><span class="item-name">Orientations</span></a
+          ><span class="tooltip">Orientations</span>
+        </li>
+        <li>
+          <a href="#content-etudiant"
+            ><span class="icon fa fa-chart-simple"></span
+            ><span class="item-name">Espace Étudiant</span></a
+          ><span class="tooltip">Espace Étudiant</span>
+        </li>
+        <li>
+          <a href="#"
+            ><span class="icon fa fa-gear"></span>Parametres<span
+              class="item-name"
+            ></span></a
+          ><span class="tooltip"></span>
+        </li>
+        <li>
+          <a href="#"
+            ><span class="icon fa fa-comment-dots"></span
+            ><span class="item-name">Contact</span></a
+          ><span class="tooltip">Contact</span>
+        </li>
+        <li>
+          <a href="#"
+            ><span class="icon fa fa-user"></span>Connexion<span
+              class="item-name"
+            ></span></a
+          ><span class="tooltip">Connexion</span>
+        </li>
+      </ul>
+    </aside>
+
+    <main>
+      <!-- Section Accueil -->
+      <section id="content-accueil" class="content-section">
+        <div class="container tm-position-relative">
+          <div class="tm-lights-container">
+            <div class="lights">
+              <img src="light.png" alt="Light 1" class="light light-1" />
+              <img src="light.png" alt="Light 2" class="light light-2" />
+              <img src="light.png" alt="Light 3" class="light light-3" />
+            </div>
+          </div>
+          <div class="row tm-welcome-content">
+            <h2 class="white-text tm-handwriting-font tm-welcome-header">
+              <img src="header-line.png" alt="Line" class="tm-header-line" />
+              &nbsp;Welcome To&nbsp;
+              <img src="header-line.png" alt="Line" class="tm-header-line" />
+            </h2>
+            <h2 class="gold-text tm-welcome-header-2">
+              Bienvenue sur Etudier au Maroc
+            </h2>
+            <p class="gray-text tm-welcome-description">
+              <span class="gold-text">Etudier au Maroc</span> est une plateforme
+              complète dédiée aux étudiants en informatique et en sciences
+              connexes. Notre mission est de les accompagner dans leurs études,
+              de les aider à surmonter leurs difficultés académiques et de leur
+              fournir des services pratiques pour améliorer leur vie étudiante.
+              Nous proposons des ressources pédagogiques, des services de
+              révision, des projets, des examens blancs, et bien plus encore.
+            </p>
+            <a href="#">Détails</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Orientations -->
+      <section id="content-orientation" class="content-section">
+        <h2>Boîte des orientations</h2>
+        <p>
+          Choisissez votre niveau d'étude pour voir les orientations possibles :
+        </p>
+        <form id="orientation-form">
+          <label for="niveau">Sélectionnez votre niveau :</label>
+          <select id="niveau" name="niveau">
+            <option value="college">Collège</option>
+            <option value="lycee">Lycée</option>
+            <option value="bac">Post-Bac</option>
+          </select>
+          <button type="button" onclick="afficherOrientations()">
+            Voir les orientations
+          </button>
+        </form>
+        <div id="result-orientations">
+          <h3>Orientations possibles :</h3>
+          <ul id="liste-orientations"></ul>
+        </div>
+      </section>
+
+      <!-- Section Cours -->
+      <section id="content-cours" class="content-section">
+        <h2>Boîte des Cours</h2>
+        <p>Ajoutez des cours et consultez la liste disponible.</p>
+        <form id="cours-form">
+          <label for="cours-nom">Nom du cours :</label>
+          <input type="text" id="cours-nom" required />
+          <label for="cours-fichier">Ajouter un fichier :</label>
+          <input
+            type="file"
+            id="cours-fichier"
+            accept=".pdf, .docx, .mp4, .jpg, .png"
+          />
+          <button type="button" onclick="ajouterCours()">Ajouter Cours</button>
+        </form>
+        <div id="result-cours">
+          <h3>Cours disponibles :</h3>
+          <ul id="liste-cours"></ul>
+        </div>
+      </section>
+
+      <!-- Section Espace Étudiant -->
+      <section id="content-etudiant" class="content-section">
+        <h2>💬 Espace Étudiant</h2>
+        <p>Posez vos questions et discutez avec d'autres étudiants !</p>
+        <form id="question-form">
+          <label for="question-text">Posez votre question :</label>
+          <textarea
+            id="question-text"
+            placeholder="Écrivez votre question ici..."
+            required
+          ></textarea>
+          <button type="submit">Publier</button>
+        </form>
+        <div id="questions-container">
+          <h3>📌 Questions & Discussions</h3>
+          <ul id="questions-list"></ul>
+        </div>
+      </section>
+      <!--section de parametres -->
+      <!-- Section Paramètres Professionnels -->
+      <section id="content-parametres" class="content-section">
+        <h2>⚙️ Paramètres Professionnels</h2>
+        <p>
+          Personnalisez votre expérience en modifiant les paramètres ci-dessous.
+        </p>
+
+        <!-- Changement de langue -->
+        <div class="parametre-option">
+          <h3>🌐 Changer la Langue</h3>
+          <label for="langue">Sélectionnez votre langue :</label>
+          <select id="langue">
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+            <option value="es">Español</option>
+          </select>
+          <button type="button" onclick="changerLangue()">Appliquer</button>
+        </div>
+
+        <!-- Paramètres de notification -->
+        <div class="parametre-option">
+          <h3>🔔 Notifications</h3>
+          <label>
+            <input type="checkbox" id="notifications-email" checked />
+            Recevoir des notifications par email
+          </label>
+          <br />
+          <label>
+            <input type="checkbox" id="notifications-sms" />
+            Recevoir des notifications par SMS
+          </label>
+        </div>
+
+        <!-- Paramètres de confidentialité -->
+        <div class="parametre-option">
+          <h3>🔒 Confidentialité</h3>
+          <label>
+            <input type="checkbox" id="profil-public" />
+            Rendre mon profil public
+          </label>
+          <br />
+          <label>
+            <input type="checkbox" id="partage-donnees" />
+            Autoriser le partage de données avec des partenaires
+          </label>
+        </div>
+
+        <!-- Sauvegarder les paramètres -->
+        <div class="parametre-option">
+          <button type="button" onclick="sauvegarderParametres()">
+            💾 Sauvegarder les Paramètres
+          </button>
+        </div>
+      </section>
+      <!--section de connexion -->
+      <!-- Section Connexion -->
+      <section id="content-connexion" class="content-section">
+        <h2>🔐 Connexion</h2>
+        <p>
+          Connectez-vous à votre compte pour accéder à toutes les
+          fonctionnalités.
+        </p>
+
+        <!-- Formulaire de connexion -->
+        <form id="connexion-form">
+          <div class="form-group">
+            <label for="email-connexion">Email :</label>
+            <input
+              type="email"
+              id="email-connexion"
+              placeholder="Votre email"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="mot-de-passe-connexion">Mot de passe :</label>
+            <input
+              type="password"
+              id="mot-de-passe-connexion"
+              placeholder="Votre mot de passe"
+              required
+            />
+          </div>
+
+          <button type="submit">Se connecter</button>
+        </form>
+
+        <!-- Options supplémentaires -->
+        <div class="options-connexion">
+          <a href="#mot-de-passe-oublie" id="lien-mot-de-passe-oublie"
+            >Mot de passe oublié ?</a
+          >
+          <span>|</span>
+          <a href="#inscription" id="lien-inscription">Créer un compte</a>
+        </div>
+
+        <!-- Connexion avec Google -->
+        <div class="connexion-google">
+          <p>Ou connectez-vous avec :</p>
+          <button type="button" id="google-connexion">
+            <i class="fab fa-google"></i>
+            <span>Google</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <!-- Réseaux Sociaux -->
+      <ul class="social-icon">
+        <li class="social-icon-item">
+          <a
+            href="https://www.facebook.com/"
+            class="social-icon-link bi-facebook"
+            target="_blank"
+          ></a>
+        </li>
+        <li class="social-icon-item">
+          <a
+            href="https://twitter.com/"
+            class="social-icon-link bi-twitter"
+            target="_blank"
+          ></a>
+        </li>
+        <li class="social-icon-item">
+          <a
+            href="https://www.instagram.com/"
+            class="social-icon-link bi-instagram"
+            target="_blank"
+          ></a>
+        </li>
+        <li class="social-icon-item">
+          <a
+            href="https://www.linkedin.com/"
+            class="social-icon-link bi-linkedin"
+            target="_blank"
+          ></a>
+        </li>
+        <li class="social-icon-item">
+          <a
+            href="https://www.youtube.com/"
+            class="social-icon-link bi-youtube"
+            target="_blank"
+          ></a>
+        </li>
+        <li class="social-icon-item">
+          <a
+            href="https://t.me/"
+            class="social-icon-link bi-telegram"
+            target="_blank"
+          ></a>
+        </li>
+        <li class="social-icon-item">
+          <a
+            href="https://www.tiktok.com/"
+            class="social-icon-link bi-tiktok"
+            target="_blank"
+          ></a>
+        </li>
+        <li class="social-icon-item">
+          <a
+            href="https://wa.me/0625405369"
+            class="social-icon-link bi-whatsapp"
+            target="_blank"
+          ></a>
+        </li>
+      </ul>
+      <p>&copy; 2025 Soutien Scolaire. Tous droits réservés.</p>
+      <p>Email : contact@soutien-scolaire.com</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
